@@ -1,6 +1,5 @@
-# ledRGB.py
-# Practica 2. Sensores y actuadores. URJC. Julio Vega
-# Codigo de ejemplo de uso del LED RGB
+# ledRGBe2.py
+# Practica 2. Sensores y actuadores. URJC. Diego y Ioana.
 
 import time, sys
 import RPi.GPIO as GPIO
