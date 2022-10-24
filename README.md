@@ -4,7 +4,7 @@ This exercise consists on drive a [RGB LED](https://github.com/clases-julio/p2-g
 
 ## Circuit Assembly
 
-The assembly is pretty straight-forward, just like [the previous one](https://github.com/clases-julio/p1-introrpi-pwm-dgarciac2021) but repeated three times. However, this time we are using a fixed value of Ω for each color (XX for **R**ed and YY for **G**reen and **B*lue)
+The assembly is pretty straight-forward, just like [the previous one](https://github.com/clases-julio/p1-introrpi-pwm-dgarciac2021) but repeated three times. However, this time we are using a fixed value of Ω for each color (XX for **R**ed and YY for **G**reen and **B**lue)
 
 This is an schematic made with [Fritzing](https://fritzing.org/):
 
