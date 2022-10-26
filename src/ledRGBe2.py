@@ -26,11 +26,11 @@ def setLED(color, mode = "on"):
     
     if mode == "off":
         if rValue: rValue = not rValue
-        else rValue = GPIO.input(redPin)
+        else: rValue = GPIO.input(redPin)
         if gValue: gValue = not gValue
-        else gValue = GPIO.input(greenPin)
+        else: gValue = GPIO.input(greenPin)
         if bValue: bValue = not bValue
-        else bValue = GPIO.input(bluePin)
+        else: bValue = GPIO.input(bluePin)
 
     GPIO.output(redPin, rValue)
     GPIO.output(greenPin, gValue)
@@ -50,9 +50,11 @@ while True:
 
     if len(userCommandSplitted) == 1:
         command = userCommandSplitted[0]
+        if command == "exit": break
+        if command == "off": turnOff()
     else:
         command, color = userCommandSplitted
+        if color: setLED(color, command)
 
-    if command == "exit": break
-    if not color and command == "off": setLED("black")
-    if color: setLED(color, command)
+GPIO.cleanup()
+
