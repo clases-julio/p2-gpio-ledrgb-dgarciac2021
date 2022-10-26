@@ -21,15 +21,23 @@ def turnOff():
 
 def setLED(color, mode = "on"):
     rValue, gValue, bValue = bin(colors[color])[2:].zfill(3)
-    
-    rValue, gValue, bValue = bool(int(rValue)), bool(int(gValue)), bool(int(bValue)) 
-    
+
+    rValue, gValue, bValue = bool(int(rValue)), bool(int(gValue)), bool(int(bValue))
+
     if mode == "off":
         if rValue: rValue = not rValue
         else: rValue = GPIO.input(redPin)
         if gValue: gValue = not gValue
         else: gValue = GPIO.input(greenPin)
         if bValue: bValue = not bValue
+        else: bValue = GPIO.input(bluePin)
+
+    if mode == "on":
+        if rValue: pass
+        else: rValue = GPIO.input(redPin)
+        if gValue: pass
+        else: gValue = GPIO.input(greenPin)
+        if bValue: pass
         else: bValue = GPIO.input(bluePin)
 
     GPIO.output(redPin, rValue)
@@ -39,14 +47,15 @@ def setLED(color, mode = "on"):
 def validInput(args):
     if len(args) == 1 and args[0] == "off" or args[0] == "exit": return True
     if len(args) == 2 and args[1] in colors and (args[0] == "on" or args[0] == "off"): return True
+    print("Non valid option!")
     return False
 
 while True:
-    userCommandSplitted = ['']
-    while not validInput(userCommandSplitted):
+    while True:
         userCommand = input ("Enter your command! ->\t")
         if not userCommand: continue
         userCommandSplitted = userCommand.lower().split(' ')
+        if validInput(userCommandSplitted): break
 
     if len(userCommandSplitted) == 1:
         command = userCommandSplitted[0]
@@ -56,5 +65,5 @@ while True:
         command, color = userCommandSplitted
         if color: setLED(color, command)
 
+turnOff()
 GPIO.cleanup()
-
