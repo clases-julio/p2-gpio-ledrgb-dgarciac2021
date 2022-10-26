@@ -17,28 +17,29 @@ GPIO.setup(bluePin, GPIO.OUT)
 colors = {"red": 4, "green": 2, "blue": 1, "cyan": 3, "magenta": 5, "yellow": 6, "white": 7, "black": 0}
 
 def turnOff():
-    setLED("black")
+   setLED("black")
 
 def setLED(color, mode = "on"):
     rValue, gValue, bValue = bin(colors[color])[2:].zfill(3)
 
     rValue, gValue, bValue = bool(int(rValue)), bool(int(gValue)), bool(int(bValue))
 
-    if mode == "off":
-        if rValue: rValue = not rValue
-        else: rValue = GPIO.input(redPin)
-        if gValue: gValue = not gValue
-        else: gValue = GPIO.input(greenPin)
-        if bValue: bValue = not bValue
-        else: bValue = GPIO.input(bluePin)
+    if color != "black":
+        if mode == "off":
+            if rValue: rValue = not rValue
+            else: rValue = GPIO.input(redPin)
+            if gValue: gValue = not gValue
+            else: gValue = GPIO.input(greenPin)
+            if bValue: bValue = not bValue
+            else: bValue = GPIO.input(bluePin)
 
-    if mode == "on":
-        if rValue: pass
-        else: rValue = GPIO.input(redPin)
-        if gValue: pass
-        else: gValue = GPIO.input(greenPin)
-        if bValue: pass
-        else: bValue = GPIO.input(bluePin)
+        if mode == "on":
+            if rValue: pass
+            else: rValue = GPIO.input(redPin)
+            if gValue: pass
+            else: gValue = GPIO.input(greenPin)
+            if bValue: pass
+            else: bValue = GPIO.input(bluePin)
 
     GPIO.output(redPin, rValue)
     GPIO.output(greenPin, gValue)
