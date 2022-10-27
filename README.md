@@ -16,6 +16,49 @@ And this is the real circuit!
 
 ## Code
 
+We would like yo highlight some remarkable aspects from our code.
+
+### Dictionary
+
+```python
+colors = {"red": 4, "green": 2, "blue": 1, "cyan": 3, "magenta": 5, "yellow": 6, "white": 7, "black": 0}
+```
+
+### Not all bits
+
+```python
+        # Only do something if yhe color to represent is not black.
+        # Actually when we turn on a color, it is substracted from the previous one.
+        # That means that only the bits that match a given color are changed.
+        # Same goes for the "on" mode.
+        if mode == "off": # Turn off a color means flip its bits!
+            if rValue: rValue = not rValue
+            else: rValue = GPIO.input(redPin)
+            if gValue: gValue = not gValue
+            else: gValue = GPIO.input(greenPin)
+            if bValue: bValue = not bValue
+            else: bValue = GPIO.input(bluePin)
+
+        if mode == "on": # pass = do nothing. This is used since the if statment could not be empty.
+            if rValue: pass 
+            else: rValue = GPIO.input(redPin)
+            if gValue: pass
+            else: gValue = GPIO.input(greenPin)
+            if bValue: pass
+            else: bValue = GPIO.input(bluePin)
+```
+
+### Is valid?
+
+```python
+def validInput(args):
+    if len(args) == 1 and args[0] == "off" or args[0] == "exit": return True
+    if len(args) == 2 and args[1] in colors and (args[0] == "on" or args[0] == "off"): return True
+    print("Non valid option!")
+    return False # Reach this point means that the argument has not passed
+    # any filter.
+```
+
 ## Circuit testing
 
 This is the result! Pretty nice, isn't it?
