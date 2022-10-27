@@ -46,7 +46,7 @@ def setLED(color, mode = "on"):
         # Actually when we turn on a color, it is substracted from the previous one.
         # That means that only the bits that match a given color are changed.
         # Same goes for the "on" mode.
-        if mode == "off":
+        if mode == "off": # Turn off a color means flip its bits!
             if rValue: rValue = not rValue
             else: rValue = GPIO.input(redPin)
             if gValue: gValue = not gValue
@@ -54,8 +54,8 @@ def setLED(color, mode = "on"):
             if bValue: bValue = not bValue
             else: bValue = GPIO.input(bluePin)
 
-        if mode == "on":
-            if rValue: pass
+        if mode == "on": # pass = do nothing. This is used since the if statment could not be empty.
+            if rValue: pass 
             else: rValue = GPIO.input(redPin)
             if gValue: pass
             else: gValue = GPIO.input(greenPin)
