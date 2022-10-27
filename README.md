@@ -20,9 +20,13 @@ We would like yo highlight some remarkable aspects from our code.
 
 ### Dictionary
 
+We decided to go for this data type to store the available colors since the key (*A.K.A.* the color) is being provided exactly by the user. This way we can easily extract the assigned value for each color directly from the user input, along with some security checks (Like for example, if the color really exists)
+
 ```python
 colors = {"red": 4, "green": 2, "blue": 1, "cyan": 3, "magenta": 5, "yellow": 6, "white": 7, "black": 0}
 ```
+
+Actually this numbers are intended to be decomposed in its binary representation. Each bit will represent a value for the output of each LED.
 
 |Color|Deciamal|Binary (RGB)|
 |---|---|---|
@@ -33,8 +37,12 @@ colors = {"red": 4, "green": 2, "blue": 1, "cyan": 3, "magenta": 5, "yellow": 6,
 
 ### Not all bits
 
+Instead of rewrite the new color over the last color, we made a different implementation.
+
+When the user enters any command followed by a color, this color will be added or substracted to the current color showed on the led. This translates to only the involved bits are changed and the rest remain in its previous state. 
+
 ```python
-        # Only do something if yhe color to represent is not black.
+        # Only do something if the color to represent is not black.
         # Actually when we turn on a color, it is substracted from the previous one.
         # That means that only the bits that match a given color are changed.
         # Same goes for the "on" mode.
@@ -55,7 +63,11 @@ colors = {"red": 4, "green": 2, "blue": 1, "cyan": 3, "magenta": 5, "yellow": 6,
             else: bValue = GPIO.input(bluePin)
 ```
 
+With this aproach we achieve a particular behaviour. For example, if the LED is already turned on in red and the user enters `on blue`, this two colors will be added giving a final magenta color. The substraction just works the same but in the opposite direction. Of course, you can do this with any given color, included those which are composed like cyan, yellow... even white which is a mix of all of them!
+
 ### Is valid?
+
+With this snippet we want to point out the usage of multipe `return` statments. However, **only one of them will actually execute**.
 
 ```python
 def validInput(args):
@@ -66,6 +78,16 @@ def validInput(args):
     # any filter.
 ```
 
+The argument will be *filtered* according to a given parameters.[^2] Once any filter is passed, the method returns `True`. Reaching the bottom of the method will mean that none filter has passed so the argument will be considered as a non valid option, thus returns `False`. This method is used as a test condition to break the loop where the program ask the user to enter a command.
+
+```python
+while True:
+        userCommand = input ("Enter your command! ->\t")
+        if not userCommand: continue # Try again if the argument is empty.
+        userCommandSplitted = userCommand.lower().split(' ')
+        if validInput(userCommandSplitted): break # If the argument is valid...
+```
+
 ## Circuit testing
 
 This is the result! Pretty nice, isn't it?
@@ -73,3 +95,4 @@ This is the result! Pretty nice, isn't it?
 ![Schematic](./.img/better-colors.gif)
 
 [^1]: Those resistor values were calculated for approximately 16mA of current for each channel. This resulted to be too bright (Both for our eyes and for the camera) so in the real circuit **two** leds are used simultaneously in order to half that current between and therefore make them dimmer.
+[^2]: Worth to mention also the order of the conditions given, seeking optimization.
