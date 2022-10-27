@@ -10,8 +10,12 @@ This is an schematic made with [Fritzing](https://fritzing.org/):
 
 And this is the real circuit!
 
+![Aerial view](./.img/aerial-view.jpg)
+
 ## Code
 
 ## Circuit testing
 
 This is the result! Pretty nice, isn't it?
+
+![Schematic](./.img/better-colors.gif)
