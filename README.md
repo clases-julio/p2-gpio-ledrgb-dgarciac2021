@@ -94,5 +94,5 @@ This is the result! Pretty nice, isn't it?
 
 ![Schematic](./.img/better-colors.gif)
 
-[^1]: Those resistor values were calculated for approximately 16mA of current for each channel. This resulted to be too bright (Both for our eyes and for the camera) so in the real circuit **two** leds are used simultaneously in order to half that current between and therefore make them dimmer.
+[^1]: Those resistor values were calculated for approximately 16mA of current for each channel. This resulted to be too bright (Both for our eyes and for the camera) so in the real circuit **two** leds are used simultaneously in order to half that current between them and therefore make them dimmer.
 [^2]: Worth to mention also the order of the conditions given, seeking optimization.
