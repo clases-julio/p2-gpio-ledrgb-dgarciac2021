@@ -33,6 +33,11 @@ def turnOff():
 
 def setLED(color, mode = "on"):
     rValue, gValue, bValue = bin(colors[color])[2:].zfill(3)
+    # At this point, the number assigned to the given color (Actually a key for
+    # the dict) is converted to its binary representation following this format:
+    # XXX
+    # However its returned as String type so in the next step the components are
+    # casted to booleans (Previously to int).
 
     rValue, gValue, bValue = bool(int(rValue)), bool(int(gValue)), bool(int(bValue))
 
