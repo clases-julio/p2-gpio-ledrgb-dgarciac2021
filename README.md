@@ -16,7 +16,7 @@ And this is the real circuit!
 
 ## Code
 
-We would like yo highlight some remarkable aspects from our code.
+We would like to highlight some remarkable aspects from our code.
 
 ### Dictionary
 
