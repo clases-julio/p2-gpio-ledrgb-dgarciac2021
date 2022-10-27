@@ -24,6 +24,13 @@ We would like yo highlight some remarkable aspects from our code.
 colors = {"red": 4, "green": 2, "blue": 1, "cyan": 3, "magenta": 5, "yellow": 6, "white": 7, "black": 0}
 ```
 
+|Color|Deciamal|Binary (RGB)|
+|---|---|---|
+|Red|4|1 0 0|
+|Green|2|0 1 0|
+|Blue|1|0 0 1|
+|...|...|...|
+
 ### Not all bits
 
 ```python
