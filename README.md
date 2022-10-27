@@ -4,9 +4,11 @@ This exercise consists on drive a [RGB LED](https://github.com/clases-julio/p2-g
 
 ## Circuit Assembly
 
-The assembly is pretty straight-forward, just like [the previous one](https://github.com/clases-julio/p1-introrpi-pwm-dgarciac2021) but repeated three times. However, this time we are using a fixed value of Ω for each color (XX for **R**ed and YY for **G**reen and **B**lue)
+The assembly is pretty straight-forward, just like [the previous one](https://github.com/clases-julio/p1-introrpi-pwm-dgarciac2021) but repeated three times. However, this time we are using a fixed value of Ω for each color (47Ω for **R**ed and 10Ω for **G**reen and **B**lue)[^1]
 
 This is an schematic made with [Fritzing](https://fritzing.org/):
+
+![Schematic](./.img/schematic.png)
 
 And this is the real circuit!
 
@@ -19,3 +21,5 @@ And this is the real circuit!
 This is the result! Pretty nice, isn't it?
 
 ![Schematic](./.img/better-colors.gif)
+
+[^1]: Those resistor values were calculated for approximately 16mA of current for each channel. This resulted to be too bright (Both for our eyes and for the camera) so in the real circuit **two** leds are used simultaneously in order to half that current between and therefore make them dimmer.
