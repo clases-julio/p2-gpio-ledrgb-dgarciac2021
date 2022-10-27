@@ -28,7 +28,7 @@ colors = {"red": 4, "green": 2, "blue": 1, "cyan": 3, "magenta": 5, "yellow": 6,
 
 Actually this numbers are intended to be decomposed in its binary representation. Each bit will represent a value for the output of each LED.
 
-|Color|Deciamal|Binary (RGB)|
+|Color|Decimal|Binary (RGB)|
 |---|---|---|
 |Red|4|1 0 0|
 |Green|2|0 1 0|
