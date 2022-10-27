@@ -78,7 +78,7 @@ def validInput(args):
     # any filter.
 ```
 
-The argument will be *filtered* according to a given parameters.[^2] Once any filter is passed, the method returns `True`. Reaching the bottom of the method will mean that none filter has passed so the argument will be considered as a non valid option, thus returns `False`. This method is used as a test condition to break the loop where the program ask the user to enter a command.
+The argument will be *filtered* according to a given parameters.[^2] Once any filter is passed, the method returns `True`. Reaching the bottom of the method will mean that none filter has passed so the argument will be considered as a non valid option, thus returns `False`. This method is used as a test condition to break the loop where the program asks the user to enter a command.
 
 ```python
 while True:

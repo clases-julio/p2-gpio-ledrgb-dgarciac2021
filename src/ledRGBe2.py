@@ -42,7 +42,7 @@ def setLED(color, mode = "on"):
     rValue, gValue, bValue = bool(int(rValue)), bool(int(gValue)), bool(int(bValue))
 
     if color != "black":
-        # Only do something if yhe color to represent is not black.
+        # Only do something if the color to represent is not black.
         # Actually when we turn on a color, it is substracted from the previous one.
         # That means that only the bits that match a given color are changed.
         # Same goes for the "on" mode.
